@@ -21,6 +21,9 @@ const ratingRoutes = require("./routes/ratingRoute");
 const studentRoutes = require("./routes/studentRoute");
 const eventRoutes = require("./routes/eventRoute");
 const notificationRoutes = require("./routes/notificationRoute");
+const tProfileRoutes = require("./routes/tProfileRoute");
+const requestRoutes = require("./routes/requestRoute");
+
 
 // Import database configuration
 const database = require("./config/db");
@@ -60,11 +63,15 @@ app.use("/api/v1/auth", userRoutes);
 app.use("/api/v1/enrollment", enrollmentRoutes);
 app.use("/api/v1/tutor", tutorRoutes);
 app.use("/api/v1/profile", profileRoutes);
+app.use("/api/v1/tprofile", tProfileRoutes);
 app.use("/api/v1/messages", messageRoutes);
 app.use("/api/v1/rating", ratingRoutes);
 app.use("/api/v1/student", studentRoutes);
 app.use("/api/v1/events", eventRoutes);
 app.use("/api/v1/notifications", notificationRoutes);
+app.use("/api/v1/requests", requestRoutes);
+
+// ...
 
 // Admin routes
 app.use("/api/v1/admin", eventRoutes);

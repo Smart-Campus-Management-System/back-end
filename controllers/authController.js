@@ -130,3 +130,16 @@ exports.login = async (req, res) => {
     });
   }
 };
+
+exports.restrictTo = (...roles) => {
+  return (req, res, next) => {
+    // Check if user exists and has one of the required roles
+    if (!req.user || !roles.includes(req.user.role)) {
+      return res.status(403).json({
+        status: 'fail',
+        message: 'You do not have permission to perform this action'
+      });
+    }
+    next();
+  }
+};
